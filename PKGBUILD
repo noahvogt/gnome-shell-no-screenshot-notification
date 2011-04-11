@@ -3,7 +3,7 @@
 
 pkgname=gnome-shell
 pkgver=3.0.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="The next generation GNOME Shell"
 arch=('i686' 'x86_64')
 url="http://live.gnome.org/GnomeShell"
@@ -11,6 +11,8 @@ license=('GPL2')
 depends=('mutter' 'gconf' 'dconf' 'gjs' 'gnome-menus' 'gnome-desktop' 'libcroco' 'libcanberra' 'libpulse' 'telepathy-glib' 'polkit-gnome'
          'gobject-introspection' 'evolution-data-server' 'gnome-bluetooth' 'gstreamer0.10' 'telepathy-logger')
 makedepends=('intltool' 'gnome-doc-utils')
+optdepends=('network-manager-applet: shell integration for networkmanager'
+            'gnome-power-manager: shell integration for power management')
 options=('!libtool' '!emptydirs')
 install=gnome-shell.install
 groups=(gnome)
