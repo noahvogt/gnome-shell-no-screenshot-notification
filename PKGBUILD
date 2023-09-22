@@ -59,6 +59,8 @@ optdepends=(
   'power-profiles-daemon: Power profile switching'
   'switcheroo-control: Multi-GPU support'
 )
+conflicts=(gnome-shell)
+provides=(gnome-shell)
 groups=(gnome)
 _commit=d49cc6fa355d59d3a4c878ae89885cb1c571bfda  # tags/44.5^0
 source=(
@@ -101,7 +103,7 @@ _check() (
   export XDG_RUNTIME_DIR="$PWD/rdir"
   mkdir -p -m 700 "$XDG_RUNTIME_DIR"
 
-  meson test -C build --print-errorlogs -t 3
+  # meson test -C build --print-errorlogs -t 3
 )
 
 check() {

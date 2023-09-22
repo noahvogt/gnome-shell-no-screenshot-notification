@@ -46,6 +46,8 @@ pkgbase = gnome-shell-no-screenshot-notification
 	optdepends = gst-plugins-good: Screen recording
 	optdepends = power-profiles-daemon: Power profile switching
 	optdepends = switcheroo-control: Multi-GPU support
+	provides = gnome-shell
+	conflicts = gnome-shell
 	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=d49cc6fa355d59d3a4c878ae89885cb1c571bfda
 	source = git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git
 	source = disable-screenshot-notification.patch
