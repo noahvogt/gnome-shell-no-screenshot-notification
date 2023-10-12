@@ -1,6 +1,6 @@
 pkgbase = gnome-shell-no-screenshot-notification
 	pkgdesc = Next generation desktop shell - without the screenshot notification
-	pkgver = 44.5
+	pkgver = 45.0
 	pkgrel = 1
 	epoch = 1
 	url = https://wiki.gnome.org/Projects/GnomeShell
@@ -45,15 +45,18 @@ pkgbase = gnome-shell-no-screenshot-notification
 	optdepends = gst-plugin-pipewire: Screen recording
 	optdepends = gst-plugins-good: Screen recording
 	optdepends = power-profiles-daemon: Power profile switching
+	optdepends = python-gobject: gnome-shell-test-tool performance tester
 	optdepends = switcheroo-control: Multi-GPU support
 	provides = gnome-shell
 	conflicts = gnome-shell
-	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=d49cc6fa355d59d3a4c878ae89885cb1c571bfda
+	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=2127c62b210f605747e019e6e2abee82516e3ccb
 	source = git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git
 	source = disable-screenshot-notification.patch
+	source = disable-screenshot-sound.patch
 	b2sums = SKIP
 	b2sums = SKIP
-	b2sums = a26f59d20480a4360e8e6f281d5e0576784801fdd635a2addd5cf0b06da567387b33a3ba869865672f55a5766b02cc1ebebaf7dcc30bd0e139122c8719083863
+	b2sums = a726caac6ec6dea7f7c8d122cedf30ad0a44921321ed763e2b4422e6f455edf2a93f6d9de72ac8c10560f69bb987a37acf6de2580b36464345afc08ab439d86e
+	b2sums = aca63da0703e44401fa987660d9542d92df7e89da66d93dbf0cd75bc25868b75d9502fb73c6981d964ebbb3b6a719c9b1d84629560dafbfedf3781a6fab7769a
 
 pkgname = gnome-shell-no-screenshot-notification
 	depends = accountsservice
@@ -75,4 +78,4 @@ pkgname = gnome-shell-no-screenshot-notification
 	depends = mutter
 	depends = unzip
 	depends = upower
-	depends = libmutter-12.so
+	depends = libmutter-13.so

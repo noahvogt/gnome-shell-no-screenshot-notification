@@ -1,0 +1,22 @@
+--- a/js/ui/screenshot.js
++++ b/js/ui/screenshot.js
+@@ -2258,8 +2258,7 @@ export async function captureScreenshot(texture, geometry, scale, cursor) {
+     if (cursor === null)
+         cursor = {texture: null, x: 0, y: 0, scale: 1};
+
+-    global.display.get_sound_player().play_from_theme(
+-        'screen-capture', _('Screenshot taken'), null);
++    // patched: do not play a sound when taking a screenshot
+
+     const pixbuf = await Shell.Screenshot.composite_to_stream(
+         texture,
+@@ -2422,8 +2421,7 @@ export class ScreenshotService {
+                 const flashspot = new Flashspot(area);
+                 flashspot.fire(resolve);
+
+-                global.display.get_sound_player().play_from_theme(
+-                    'screen-capture', _('Screenshot taken'), null);
++                    // patched: do not play a sound when taking a screenshot
+             });
+         });
+     }

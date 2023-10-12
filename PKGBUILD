@@ -5,7 +5,7 @@
 
 _base_name=gnome-shell
 pkgname=gnome-shell-no-screenshot-notification
-pkgver=44.5
+pkgver=45.0
 pkgrel=1
 epoch=1
 pkgdesc="Next generation desktop shell - without the screenshot notification"
@@ -57,20 +57,23 @@ optdepends=(
   'gst-plugin-pipewire: Screen recording'
   'gst-plugins-good: Screen recording'
   'power-profiles-daemon: Power profile switching'
+  'python-gobject: gnome-shell-test-tool performance tester'
   'switcheroo-control: Multi-GPU support'
 )
 conflicts=(gnome-shell)
 provides=(gnome-shell)
 groups=(gnome)
-_commit=d49cc6fa355d59d3a4c878ae89885cb1c571bfda  # tags/44.5^0
+_commit=2127c62b210f605747e019e6e2abee82516e3ccb  # tags/45.0^0
 source=(
   "git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=$_commit"
   "git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git"
   "disable-screenshot-notification.patch"
+  "disable-screenshot-sound.patch"
 )
 b2sums=('SKIP'
         'SKIP'
-        'a26f59d20480a4360e8e6f281d5e0576784801fdd635a2addd5cf0b06da567387b33a3ba869865672f55a5766b02cc1ebebaf7dcc30bd0e139122c8719083863')
+        'a726caac6ec6dea7f7c8d122cedf30ad0a44921321ed763e2b4422e6f455edf2a93f6d9de72ac8c10560f69bb987a37acf6de2580b36464345afc08ab439d86e'
+        'aca63da0703e44401fa987660d9542d92df7e89da66d93dbf0cd75bc25868b75d9502fb73c6981d964ebbb3b6a719c9b1d84629560dafbfedf3781a6fab7769a')
 
 pkgver() {
   cd $_base_name
@@ -81,6 +84,7 @@ prepare() {
   cd $_base_name
 
   patch -p1 -i "$srcdir/disable-screenshot-notification.patch"
+  patch -p1 -i "$srcdir/disable-screenshot-sound.patch"
 
   git submodule init
   git submodule set-url subprojects/gvc "$srcdir/libgnome-volume-control"
@@ -103,6 +107,8 @@ _check() (
   export XDG_RUNTIME_DIR="$PWD/rdir"
   mkdir -p -m 700 "$XDG_RUNTIME_DIR"
 
+  export NO_AT_BRIDGE=1 GTK_A11Y=none
+
   # meson test -C build --print-errorlogs -t 3
 )
 
@@ -112,7 +118,7 @@ check() {
 }
 
 package() {
-  depends+=(libmutter-12.so)
+  depends+=(libmutter-13.so)
   meson install -C build --destdir "$pkgdir"
 }
 

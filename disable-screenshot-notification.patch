@@ -1,6 +1,6 @@
 --- a/js/ui/screenshot.js
 +++ b/js/ui/screenshot.js
-@@ -2184,48 +2184,7 @@ function _storeScreenshot(bytes, pixbuf) {
+@@ -2195,48 +2195,7 @@ function _storeScreenshot(bytes, pixbuf) {
          pixbuf.rowstride
      );
 
@@ -16,7 +16,7 @@
 -        _('Screenshot captured'),
 -        // Translators: notification body when a screenshot was captured.
 -        _('You can paste the image from the clipboard.'),
--        { datetime: time, gicon: content }
+-        {datetime: time, gicon: content}
 -    );
 -
 -    if (!disableSaveToDisk) {
