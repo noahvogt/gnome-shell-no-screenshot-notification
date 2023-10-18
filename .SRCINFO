@@ -1,6 +1,6 @@
 pkgbase = gnome-shell-no-screenshot-notification
 	pkgdesc = Next generation desktop shell - without the screenshot notification
-	pkgver = 45.0
+	pkgver = 45.0+r17+gebf2f8036
 	pkgrel = 1
 	epoch = 1
 	url = https://wiki.gnome.org/Projects/GnomeShell
@@ -49,7 +49,7 @@ pkgbase = gnome-shell-no-screenshot-notification
 	optdepends = switcheroo-control: Multi-GPU support
 	provides = gnome-shell
 	conflicts = gnome-shell
-	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=2127c62b210f605747e019e6e2abee82516e3ccb
+	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=ebf2f80360f152c9d071a16c5caeecb4bd0927c4
 	source = git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git
 	source = disable-screenshot-notification.patch
 	source = disable-screenshot-sound.patch
