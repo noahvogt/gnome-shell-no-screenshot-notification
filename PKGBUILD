@@ -6,7 +6,7 @@
 _base_name=gnome-shell
 pkgname=gnome-shell-no-screenshot-notification
 pkgver=45.1
-pkgrel=1
+pkgrel=2
 epoch=1
 pkgdesc="Next generation desktop shell - without the screenshot notification"
 url="https://wiki.gnome.org/Projects/GnomeShell"
@@ -69,11 +69,13 @@ source=(
   "git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git"
   "disable-screenshot-notification.patch"
   "disable-screenshot-sound.patch"
+  "change-screenshot-filenaming.patch"
 )
 b2sums=('SKIP'
         'SKIP'
         'a726caac6ec6dea7f7c8d122cedf30ad0a44921321ed763e2b4422e6f455edf2a93f6d9de72ac8c10560f69bb987a37acf6de2580b36464345afc08ab439d86e'
-        'aca63da0703e44401fa987660d9542d92df7e89da66d93dbf0cd75bc25868b75d9502fb73c6981d964ebbb3b6a719c9b1d84629560dafbfedf3781a6fab7769a')
+        'aca63da0703e44401fa987660d9542d92df7e89da66d93dbf0cd75bc25868b75d9502fb73c6981d964ebbb3b6a719c9b1d84629560dafbfedf3781a6fab7769a'
+        'e3d93ff6565a4e2db845fe95bfd965d39a042beb47a89a91aea5f7c21b7c4d52d377470b9803082d33924780cb5a82b06159cd6ace14e1ae4249ba08eda71dac')
 
 pkgver() {
   cd $_base_name
@@ -85,6 +87,7 @@ prepare() {
 
   patch -p1 -i "$srcdir/disable-screenshot-notification.patch"
   patch -p1 -i "$srcdir/disable-screenshot-sound.patch"
+  patch -p1 -i "$srcdir/change-screenshot-filenaming.patch"
 
   git submodule init
   git submodule set-url subprojects/gvc "$srcdir/libgnome-volume-control"
