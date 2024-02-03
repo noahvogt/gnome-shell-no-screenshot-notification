@@ -5,8 +5,8 @@
 
 _base_name=gnome-shell
 pkgname=gnome-shell-no-screenshot-notification
-pkgver=45.1
-pkgrel=2
+pkgver=45.2
+pkgrel=1
 epoch=1
 pkgdesc="Next generation desktop shell - without the screenshot notification"
 url="https://wiki.gnome.org/Projects/GnomeShell"
@@ -63,7 +63,7 @@ optdepends=(
 conflicts=(gnome-shell)
 provides=(gnome-shell)
 groups=(gnome)
-_commit=a7c169c6c29cf02a4c392fa0acbbc5f5072823e7  # tags/45.1^0
+_commit=8bb752adf47efa1e225d1aa885ae71865cabce8a  # tags/45.1^0
 source=(
   "git+https://gitlab.gnome.org/GNOME/gnome-shell.git#commit=$_commit"
   "git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git"
