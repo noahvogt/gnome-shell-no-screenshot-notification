@@ -3,3 +3,5 @@ libgnome-volume-control/
 src/
 pkg/
 *.zst
+nohup.out
+*.log
