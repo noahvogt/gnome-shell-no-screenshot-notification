@@ -56,6 +56,7 @@ depends=(
   systemd-libs
   unzip
   upower
+  webkitgtk-6.0
 )
 makedepends=(
   asciidoc
