@@ -1,23 +1,25 @@
 --- a/js/ui/screenshot.js
 +++ b/js/ui/screenshot.js
-@@ -2195,48 +2195,7 @@ function _storeScreenshot(bytes, pixbuf) {
+@@ -2319,49 +2319,7 @@ function _storeScreenshot(bytes, pixbuf) {
          pixbuf.rowstride
      );
 
 -    // Show a notification.
--    const source = new MessageTray.Source(
+-    const source = new MessageTray.Source({
 -        // Translators: notification source name.
--        _('Screenshot'),
--        'screenshot-recorded-symbolic'
--    );
--    const notification = new MessageTray.Notification(
+-        title: _('Screenshot'),
+-        iconName: 'screenshot-recorded-symbolic',
+-    });
+-    const notification = new MessageTray.Notification({
 -        source,
 -        // Translators: notification title.
--        _('Screenshot captured'),
+-        title: _('Screenshot captured'),
 -        // Translators: notification body when a screenshot was captured.
--        _('You can paste the image from the clipboard.'),
--        {datetime: time, gicon: content}
--    );
+-        body: _('You can paste the image from the clipboard.'),
+-        datetime: time,
+-        gicon: content,
+-        isTransient: true,
+-    });
 -
 -    if (!disableSaveToDisk) {
 -        // Translators: button on the screenshot notification.
@@ -43,10 +45,9 @@
 -        });
 -    }
 -
--    notification.setTransient(true);
 -    Main.messageTray.add(source);
--    source.showNotification(notification);
+-    source.addNotification(notification);
 +    // patched: do not show a notification after taking a screenshot
- }
 
- /**
+     return file;
+ }

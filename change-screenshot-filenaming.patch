@@ -1,15 +1,15 @@
 --- a/js/ui/screenshot.js
 +++ b/js/ui/screenshot.js
-@@ -2155,10 +2155,10 @@ function _storeScreenshot(bytes, pixbuf) {
+@@ -2279,10 +2279,10 @@ function _storeScreenshot(bytes, pixbuf) {
                  throw e;
          }
 
 -        const timestamp = time.format('%Y-%m-%d %H-%M-%S');
-+        const timestamp = time.format('%Y%m%d-%H%M%S_%N');
++        const timestamp = time.format('%Y%m%d-%H%M%S');
          // Translators: this is the name of the file that the screenshot is
          // saved to. The placeholder is a timestamp, e.g. "2017-05-21 12-24-03".
--        const name = _('Screenshot from %s').format(timestamp);
-+        const name = _('Screenshot_%s').format(timestamp);
+-        const name = _('Screenshot From %s').format(timestamp);
++        const name = _('Screenshot_%s_gnome').format(timestamp);
 
          // If the target file already exists, try appending a suffix with an
          // increasing number to it.
