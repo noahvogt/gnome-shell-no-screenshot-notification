@@ -1,9 +1,25 @@
 --- a/js/ui/screenshot.js
 +++ b/js/ui/screenshot.js
-@@ -2319,49 +2319,7 @@ function _storeScreenshot(bytes, pixbuf) {
-         pixbuf.rowstride
-     );
+@@ -2308,68 +2308,7 @@ function _storeScreenshot(bytes, pixbuf) {
+         saveRecentFile(file);
+     }
 
+-    // Create a St.ImageContent icon for the notification. We want
+-    // St.ImageContent specifically because it preserves the aspect ratio when
+-    // shown in a notification.
+-    const coglContext = global.stage.context.get_backend().get_cogl_context();
+-    const pixels = pixbuf.read_pixel_bytes();
+-    const content =
+-        St.ImageContent.new_with_preferred_size(pixbuf.width, pixbuf.height);
+-    content.set_bytes(
+-        coglContext,
+-        pixels,
+-        Cogl.PixelFormat.RGBA_8888,
+-        pixbuf.width,
+-        pixbuf.height,
+-        pixbuf.rowstride
+-    );
+-
 -    // Show a notification.
 -    const source = new MessageTray.Source({
 -        // Translators: notification source name.
@@ -42,6 +58,9 @@
 -            } catch (err) {
 -                logError(err, 'Error opening screenshot');
 -            }
+-
+-            Main.overview.hide();
+-            Main.panel.closeCalendar();
 -        });
 -    }
 -

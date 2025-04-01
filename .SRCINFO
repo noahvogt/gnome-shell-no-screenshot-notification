@@ -1,6 +1,6 @@
 pkgbase = gnome-shell-no-screenshot-notification
 	pkgdesc = Next generation desktop shell - without the screenshot notification
-	pkgver = 47.4
+	pkgver = 48.0
 	pkgrel = 1
 	epoch = 1
 	url = https://gitlab.gnome.org/GNOME/gnome-shell
@@ -62,16 +62,18 @@ pkgbase = gnome-shell-no-screenshot-notification
 	depends = webkitgtk-6.0
 	provides = gnome-shell
 	conflicts = gnome-shell
-	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#tag=47.4
+	source = git+https://gitlab.gnome.org/GNOME/gnome-shell.git#tag=48.0
 	source = git+https://gitlab.gnome.org/GNOME/libgnome-volume-control.git#commit=5f9768a2eac29c1ed56f1fbb449a77a3523683b6
+	source = git+https://github.com/ptomato/jasmine-gjs.git#commit=856465dddbd92e82e574891e1ebc79e17d7b708a
 	source = disable-screenshot-notification.patch
 	source = disable-screenshot-sound.patch
 	source = change-screenshot-filenaming.patch
-	b2sums = d8e8653f0e2a645390b95e16b45efd80501ce829ada0671b7c1cd597575ea64d2f650ee4771cbe60d41175bc7823eabe8dde1f58ba3c6b2cee6166b6f5c1f45a
+	b2sums = 8c399191765672c682a4288a8a6450871938588870fa177ffbadf26369221af49a85ec3e45ad1ffd00d3d4ee4b93e4076bb16ff40b7fcd98531f8365d3f9ee2b
 	b2sums = e31ae379039dfc345e8032f7b9803a59ded075fc52457ba1553276d3031e7025d9304a7f2167a01be2d54c5e121bae00a2824a9c5ccbf926865d0b24520bb053
-	b2sums = f05b5daf8194566769ac5123b29e06caaf93add8d398c4545a4690e9558dafd85fabbe27301aaedf9c69d45499907c7b2d9d8ae16e4c989a6cfb846c91c3adf6
-	b2sums = 26702aa16b023c049521d7af391e21533bdbf065ad3c316949dade33651347cca7998e9e4fabe5fa913426cd45ad5720b0f80c5ad10f98ed517d46aeea497332
-	b2sums = 06b1ae01d08bfaf3c2d3a55e00985ae76120204afa002f65465c61bf0d034046ed926ae10a7262c0838cabf8d5f26eb469fbdfe610469f831678c31de8a64a20
+	b2sums = ecbbb9ce5895cc1caed2ddef39c70b4768d78ea0a929ea932d4149f923f92650973cdaefc2aacc9063f2ccf4ec965b57a9698a286f9a6561e39ce2e579ae4522
+	b2sums = 50566ed521cb7fee15ad0ab25733848253ffc01827560181283eb2dafc3d6e9b6a917f1640ff3912e05e5fd6ff66e679e37e793cbe94927daa6e055198ac4de2
+	b2sums = 4a70c4a8ca1aded2676873d9cfa15845c008b0747aa32646cd7e4f90d65dc13b1f58555f11957a59fe2e51a11c3409317fc8a2c290ebde0a4da380b11accbf36
+	b2sums = 18c6930cf015ed55b635edebff9e685b5ddc0a20225e4e7e7289f3eaba9b626b1c036a16d4af68a676e6ac2e42b68cced7240229ba170c3e851a87543bf62435
 
 pkgname = gnome-shell-no-screenshot-notification
 	groups = gnome
@@ -118,7 +120,7 @@ pkgname = gnome-shell-no-screenshot-notification
 	depends = unzip
 	depends = upower
 	depends = webkitgtk-6.0
-	depends = libmutter-15.so
+	depends = libmutter-16.so
 	optdepends = evolution-data-server: Evolution calendar integration
 	optdepends = gnome-bluetooth-3.0: Bluetooth support
 	optdepends = gnome-control-center: System settings

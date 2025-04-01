@@ -1,5 +1,6 @@
 gnome-shell/
 libgnome-volume-control/
+jasmine-gjs/
 src/
 pkg/
 *.zst
